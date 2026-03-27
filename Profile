@@ -1,0 +1,36 @@
+mport 'package:flutter/material.dart';
+
+class ProfilePage extends StatefulWidget {
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  double _size = 150;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: GestureDetector(
+        onTap: () {
+          setState(() {
+            _size = _size == 150 ? 250 : 150;
+          });
+        },
+        child: AnimatedContainer(
+          duration: Duration(seconds: 1),
+          width: _size,
+          height: _size,
+          decoration: BoxDecoration(
+            color: Colors.blue,
+            borderRadius: BorderRadius.circular(20),
+            image: DecorationImage(
+              image: AssetImage('assets/images/pvp.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
